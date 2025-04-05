@@ -1,0 +1,35 @@
+ body {
+    height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: grey;
+    display: flex;
+    justify-content:  space-around;
+    align-items: center;
+    height: 7.5vh;/* Font size for header links */
+}
+
+.logo {
+    font-size: 1.5rem; /* Font size for the logo */
+    color: white; /* Logo color */
+    font-weight: bold; /* Make the logo bold */
+}
+.nav > ul{
+    display: flex;
+    gap: 3vw;
+    list-style: none; /* Remove default list styling */
+    font-size: 1.2rem; /* Font size for navigation links */
+}
+
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set link color */
+}
