@@ -44,13 +44,12 @@ a {
 .slides {/* If you have 3 slides, make it 300% */
   min-height: 800px;
   background-size: cover;
-  animation: opacity 10s ease-in-out infinite;
   opacity: 1;
 }
 
 .slides.change {
   opacity: 0;
-
+  animation: opacity 5s ease-in-out infinite;
 }
 
 @keyframes opacity {
