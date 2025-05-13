@@ -1,7 +1,8 @@
+
 const slidesArray = ["img1.jpg", "img2.jpg", "img3.jpg"];
 let currentSlide = 0;
 let numOfSlideChanges = 0;
-let slideInterval =  setInterval(changeSlide, 10000); // Store interval ID so we can pause it
+// Store interval ID so we can pause it
 
 const leftGradient = "linear-gradient(to right,rgba(245, 243, 243, 1) 1%, rgba(255, 255, 255, 0) 50% , rgba(255, 255, 255, 0) 100%)";
 const bottomGradient = "linear-gradient(to top,rgba(245, 243, 243, 1) 1%, rgba(255, 255, 255, 0) 50% , rgba(255, 255, 255, 0) 100%)";
@@ -28,11 +29,12 @@ const bottomGradient = "linear-gradient(to top,rgba(245, 243, 243, 1) 1%, rgba(2
 
 
   const allSlides = document.querySelectorAll(".slide");
-  console.log(allSlides[currentSlide]);
+  console.log(allSlides);
 
+let slideInterval =  setInterval(() =>nextSlide(), 10000); 
 
-
-  function changeSlide() { 
+  function nextSlide() { 
+    console.log(currentSlide)
     allSlides[currentSlide].classList.remove("change");
     allSlides[currentSlide].style.display = "none" // Hide current slide
     currentSlide = (currentSlide + 1) % allSlides.length; // Move to next slide
@@ -43,7 +45,15 @@ const bottomGradient = "linear-gradient(to top,rgba(245, 243, 243, 1) 1%, rgba(2
     console.log(`Number of slide changes: ${numOfSlideChanges}`);
   };
 
-
+  function prevSlide() {
+    console.log(currentSlide)
+    allSlides[currentSlide].classList.remove("change");
+    allSlides[currentSlide].style.display = "none" // Hide current slide
+    currentSlide = (currentSlide - 1 + allSlides.length) % allSlides.length; // Move to next slide
+    allSlides[currentSlide].classList.add("change"); // Show next slide
+    allSlides[currentSlide].style.display = "block"; // Show next slide
+    console.log(`Current slide: ${currentSlide}`);
+  }
   // slides.style.backgroundImage = `${leftGradient}, ${bottomGradient}, url(${slidesArray[currentSlide]})`;  
 console.log(slideInterval)
   
@@ -51,10 +61,19 @@ console.log(slideInterval)
   slides.addEventListener('mouseenter', pauseSlideshow);
   slides.addEventListener('mouseleave', resumeSlideshow);
 
+  const leftButton = document.getElementById("prev");
+  const rightButton = document.getElementById("next");
 
+  leftButton.addEventListener("click", () => {
+  clearInterval(slideInterval); // stops it from running 
+  })
 
+  rightButton.addEventListener("click", () => {
+    clearInterval(slideInterval); // stops it from running 
+  })
 
-
+  leftButton.addEventListener("click", () => prevSlide());
+  rightButton.addEventListener("click", () => nextSlide());
 
 function pauseSlideshow() {
   clearInterval(slideInterval); // stops it from running
@@ -63,6 +82,6 @@ function pauseSlideshow() {
 }
 
 function resumeSlideshow() {
-  slideInterval = setInterval(changeSlide, 10000);
+  slideInterval = setInterval(nextSlide, 10000);
   console.log("Slideshow resumed");
 }
