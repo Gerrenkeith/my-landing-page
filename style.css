@@ -41,6 +41,10 @@ a {
   background: #363c4d;
 }
 
+#slide{
+  position: absolute;
+
+}
 
 .slide {
   min-height: 800px;
@@ -51,6 +55,12 @@ a {
 
 }
 
+.slide > h1{
+ display: flex;
+  justify-content: center;
+  padding-top: 37.5vh;
+  font-size: 3rem;
+}
 
 .change {
   background-size: cover;
@@ -65,4 +75,24 @@ a {
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+#prev, #next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  background: none;
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
 }

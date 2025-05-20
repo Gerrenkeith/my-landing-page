@@ -12,9 +12,13 @@ const bottomGradient = "linear-gradient(to top,rgba(245, 243, 243, 1) 1%, rgba(2
   
   slidesArray.forEach((slide, index) => {
     const slideElement = document.createElement("div");
+    const headone = document.createElement("h1");
     slideElement.classList.add("slide");
-    slideElement.style.backgroundImage = `url(${slide})`;
-    slideElement.style.backgroundSize = "cover";
+    // slideElement.style.backgroundImage = `url(${slide})`;
+    // slideElement.style.backgroundSize = "cover";
+    headone.textContent = `Slide ${index + 1}`;
+    slideElement.appendChild(headone);
+    slideElement.style.backgroundColor = "lightblue";
     slideElement.style.backgroundPosition = "center";
     index === 0 ? slideElement.classList.add("change") : slideElement.style.display = "none"; // Hide all slides except the first
     slides.appendChild(slideElement);
