@@ -34,6 +34,8 @@ a {
     color: black; /* Set link color */
 }
 
+/* start of carousel */
+
 .slideshow-container {
   position: relative;
   width: 100%;
@@ -109,4 +111,76 @@ a {
 
 .live {
   background-color: black;
+}
+
+/* end of carousel */
+
+#info * {
+  border: 1px solid red;
+}
+
+#info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  gap: 75px;
+  min-width: 300px;
+  min-height: 800px;
+}
+
+#info > div:first-child {
+    font-size: 2em;
+}
+
+.product{
+  display: flex;
+  width: 60vw;
+  height: 50vh;
+}
+
+
+
+h3 {
+  font-size: 1.85em;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex: 2 1 0%;
+}
+
+.item-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0%;
+  background-color: silver;
+}
+
+
+.item-header > .about > p {
+  font-size: 1.6em;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height:  45vh;
+  background-color: rgb(143, 128, 145);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50vw;
+  align-items: center;
 }
