@@ -8,7 +8,7 @@ const leftGradient = "linear-gradient(to right,rgba(245, 243, 243, 1) 1%, rgba(2
 const bottomGradient = "linear-gradient(to top,rgba(245, 243, 243, 1) 1%, rgba(255, 255, 255, 0) 50% , rgba(255, 255, 255, 0) 100%)";
 const slides = document.getElementById("slides")
 const dots = document.getElementById("dots")
-  console.log(slides)
+ 
   
 slidesArray.forEach((slide, index) => {
     const slideElement = document.createElement("div");
@@ -36,20 +36,19 @@ slidesArray.forEach((slide, index) => {
 
 const allSlides = document.querySelectorAll(".slide");
 const allDots = document.querySelectorAll(".dot");
-console.log(allSlides);
+
 
 let slideInterval =  setInterval(() =>nextSlide(), 10000); // Change slide every 10 seconds
 
 function nextSlide() { 
-    console.log(currentSlide)
+    
     allSlides[currentSlide].classList.remove("change");
     allSlides[currentSlide].style.display = "none" // Hide current slide
     currentSlide = (currentSlide + 1) % allSlides.length; // Move to next slide
     allSlides[currentSlide].classList.add("change"); // Show next slide
     allSlides[currentSlide].style.display = "block"; // Show next slide
-    console.log(`Current slide: ${currentSlide}`);
+
     numOfSlideChanges += 1;
-    console.log(`Number of slide changes: ${numOfSlideChanges}`);
 
     allDots[currentDot].classList.remove("live");
     currentDot = (currentDot + 1) % allDots.length; // Move to next dot
@@ -58,20 +57,16 @@ function nextSlide() {
   };// Show next slide
 
   function prevSlide() {
-    console.log(currentSlide)
     allSlides[currentSlide].classList.remove("change");
     allSlides[currentSlide].style.display = "none" // Hide current slide
     currentSlide = (currentSlide - 1 + allSlides.length) % allSlides.length; // Move to next slide
     allSlides[currentSlide].classList.add("change"); // Show next slide
     allSlides[currentSlide].style.display = "block"; // Show next slide
-    console.log(`Current slide: ${currentSlide}`);
 
     allDots[currentDot].classList.remove("live");
     currentDot = (currentDot - 1 + allDots.length) % allDots.length; // Move to next dot
     allDots[currentDot].classList.add("live");
   };// Show previous slide
-
-console.log(slideInterval)
   
   // Optional: pause on hover
 slides.addEventListener('mouseenter', pauseSlideshow); // Pause slideshow on hover
@@ -94,12 +89,11 @@ rightButton.addEventListener("click", () => nextSlide());
 function pauseSlideshow() {
   clearInterval(slideInterval); // stops it from running
   allSlides[currentSlide].classList.remove("change") 
-  console.log("Slideshow paused");
-}
+  }
 
 function resumeSlideshow() {
   slideInterval = setInterval(nextSlide, 10000);
-  console.log("Slideshow resumed");
+  
 }
 
 function goToSlide() { 
@@ -108,7 +102,7 @@ function goToSlide() {
   currentSlide = this.id; // Move to next slide
   allSlides[currentSlide].classList.add("change"); // Show next slide
   allSlides[currentSlide].style.display = "block"; // Show next slide
-  console.log(`Current slide: ${currentSlide}`);
+
   
   allDots[currentDot].classList.remove("live");
   currentDot = this.id; // Move to next dot
