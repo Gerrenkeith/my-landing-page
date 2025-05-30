@@ -20,7 +20,6 @@ slidesArray.forEach((slide, index) => {
     // slideElement.style.backgroundSize = "cover";
     headone.textContent = `Slide ${index + 1}`;
     slideElement.appendChild(headone);
-    slideElement.style.backgroundColor = "lightblue";
     slideElement.style.backgroundPosition = "center";
     index === 0 ? slideElement.classList.add("change") : slideElement.style.display = "none"; // Hide all slides except the first
     slides.appendChild(slideElement);
